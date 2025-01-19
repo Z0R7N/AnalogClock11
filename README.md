@@ -53,7 +53,7 @@
 ---
 
 ## Скриншоты
-![Скриншот часов](https://github.com/Z0R7N/AnalogClock11/assets/screen_clock11.png)
+![Скриншот часов](https://github.com/Z0R7N/AnalogClock11/blob/main/assets/screen_clock11.png)
 
 ---
 
