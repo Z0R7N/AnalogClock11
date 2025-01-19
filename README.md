@@ -14,7 +14,7 @@
 ---
 
 ## Установка
-1. Скачайте файл [`AnalogClock11.exe`](https://github.com/Z0R7N/AnalogClock11/blob/main/obj/Release/AnalogClock11.exe).
+1. Скачайте файл [`AnalogClock11.exe`](https://github.com/Z0R7N/AnalogClock11/raw/refs/heads/main/releases/AnalogClock11.exe).
 2. Запустите приложение. Часы появятся на вашем рабочем столе.
 
 ---
