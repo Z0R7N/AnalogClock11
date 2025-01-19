@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AnalogClock11.exe" size="14224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AnalogClock11.exe" size="301968">
       <assemblyIdentity name="AnalogClock11" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nvpZW1yXk0ACZJ85I0mDVlXCvso+JriDl6nMfCh2yIA=</dsig:DigestValue>
+        <dsig:DigestValue>DudMm5jG8Ic30Zq9fT52lEtfDXwDbf5upDA/S7MGZkw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AnalogClock11.exe.config" size="187">
+  <file name="AnalogClock11.exe.config" size="1051">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+CM46OnHRrXZXNLMx7+U3V3iubiYL//d8hGOR13lDhU=</dsig:DigestValue>
+      <dsig:DigestValue>WTTh+82r9NxjptYx9WMKZeOcYZDH/tHHwrORGf5C1SA=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -6,6 +6,8 @@
         WindowStyle="None" 
         AllowsTransparency="True" 
         Background="Transparent"
+        Topmost="False"
+        ResizeMode="NoResize"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         MouseMove="Window_MouseMove"
         MouseLeftButtonUp="Window_MouseLeftButtonUp" ShowInTaskbar="False">

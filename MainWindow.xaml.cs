@@ -20,6 +20,8 @@ namespace AnalogClock11
         private bool isDragging = false; // Флаг, указывающий, что окно перемещается
         private Point dragStartPoint; // Точка, с которой началось перемещение
 
+        private DispatcherTimer _saveTimer; // Таймер для сохранения положения окна
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +38,30 @@ namespace AnalogClock11
             timer.Interval = TimeSpan.FromSeconds(5);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            // Инициализируем таймер для сохранения положения
+            _saveTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(500) // Задержка 500 мс
+            };
+            _saveTimer.Tick += SaveTimer_Tick;
+
+            // Подписываемся на событие изменения положения окна
+            LocationChanged += MainWindow_LocationChanged;
+        }
+
+        private void MainWindow_LocationChanged(object sender, EventArgs e)
+        {
+            // Перезапускаем таймер при каждом перемещении
+            _saveTimer.Stop();
+            _saveTimer.Start();
+        }
+
+        private void SaveTimer_Tick(object sender, EventArgs e)
+        {
+            // Сохраняем положение окна
+            SaveWindowPosition();
+            _saveTimer.Stop(); // Останавливаем таймер после сохранения
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -243,56 +269,23 @@ namespace AnalogClock11
             canvas.Children.Add(minuteHand2);
         }
 
-        // Метод для рисования конусообразной стрелки
-        private void DrawConicalHand(double angle, int length, int baseWidth, Brush color)
-        {
-            // Координаты конца стрелки
-            int endX = CENTER_X + (int)(length * Math.Sin(angle));
-            int endY = CENTER_Y - (int)(length * Math.Cos(angle));
-
-            // Координаты основания стрелки (широкая часть)
-            int baseX1 = CENTER_X + (int)(baseWidth * Math.Cos(angle));
-            int baseY1 = CENTER_Y + (int)(baseWidth * Math.Sin(angle));
-            int baseX2 = CENTER_X - (int)(baseWidth * Math.Cos(angle));
-            int baseY2 = CENTER_Y - (int)(baseWidth * Math.Sin(angle));
-
-            // Создаём Polygon для стрелки
-            Polygon hand = new Polygon
-            {
-                Points = new PointCollection
-        {
-            new Point(endX, endY), // Острый конец стрелки
-            new Point(baseX1, baseY1), // Основание стрелки (широкая часть)
-            new Point(baseX2, baseY2)  // Основание стрелки (широкая часть)
-        },
-                Fill = color, // Заливка стрелки
-                Stroke = Brushes.Black, // Обводка стрелки
-                StrokeThickness = 1
-            };
-
-            // Добавляем стрелку на Canvas
-            canvas.Children.Add(hand);
-        }
 
         private void SaveWindowPosition()
         {
-            // Сохраняем положение окна в файл
-            File.WriteAllText("window_position.txt", $"{Left} {Top}");
+            // Сохраняем положение окна в настройки приложения
+            Properties.Settings.Default.WindowLeft = Left;
+            Properties.Settings.Default.WindowTop = Top;
+            Properties.Settings.Default.Save(); // Сохраняем изменения
         }
 
         private void LoadWindowPosition()
         {
-            // Загружаем положение окна из файла
-            if (File.Exists("window_position.txt"))
-            {
-                string[] position = File.ReadAllText("window_position.txt").Split(' ');
-                if (position.Length == 2 && double.TryParse(position[0], out double left) && double.TryParse(position[1], out double top))
-                {
-                    Left = left;
-                    Top = top;
-                }
-            }
+            // Загружаем положение окна из настроек приложения
+            Left = Properties.Settings.Default.WindowLeft;
+            Top = Properties.Settings.Default.WindowTop;
         }
+
+
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

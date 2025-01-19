@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="AnalogClock11.exe.manifest" size="3668">
+    <dependentAssembly dependencyType="install" codebase="AnalogClock11.exe.manifest" size="3670">
       <assemblyIdentity name="AnalogClock11.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X8qejn2W8aYOi33Z5rIN46MgwMTNqtqHXalSFCZ5738=</dsig:DigestValue>
+        <dsig:DigestValue>eHYJVybZgLl7hh3ESprm2931xYcV68/BIhhvJL25Kwc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
